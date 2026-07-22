@@ -1,42 +1,39 @@
-# 🌶️ Automated Spice Dispenser using 8051 and Arduino
+# 🌶️ Automated Spice Dispenser using 8051 Microcontroller and Arduino Uno
 
-An embedded systems project that automates spice dispensing using a dual-controller architecture. The system integrates an **8051 Microcontroller** and an **Arduino Uno** to control servo motors while utilizing a **load cell with HX711** for accurate real-time weight measurement.
-
-This project demonstrates the integration of embedded systems, sensors, actuators, and serial communication to create a compact and efficient smart kitchen automation solution.
+An embedded systems project that automates spice dispensing using a dual-controller architecture. The system integrates an **8051 Microcontroller** and an **Arduino Uno** to control servo motors while utilizing a **load cell with the HX711 amplifier** for accurate real-time weight measurement.
 
 ---
 
 ## 📖 Project Overview
 
-The **Automated Spice Dispenser** is designed to dispense predefined quantities of spices accurately without manual measurement. A load cell continuously monitors the dispensed weight and provides real-time feedback to stop dispensing once the target quantity is achieved.
+The **Automated Spice Dispenser** is a smart kitchen automation system designed to dispense predefined quantities of spices with high accuracy. The system employs a closed-loop feedback mechanism where a load cell continuously measures the dispensed weight and automatically stops dispensing when the desired quantity is reached.
 
-The system uses the **8051 Microcontroller** for user interaction and communication, while the **Arduino Uno** controls the servo motors responsible for dispensing spices. The project highlights the practical implementation of embedded systems in automation applications.
+The project demonstrates the integration of embedded systems, sensors, actuators, and serial communication to create an efficient, low-cost, and reliable automation solution.
 
 ---
 
 ## ✨ Features
 
 - Automatic dispensing of five different spices
-- Real-time weight measurement using a load cell
-- Closed-loop feedback for accurate dispensing
+- Real-time weight monitoring using a load cell
+- Closed-loop feedback for precise dispensing
 - Dual-controller architecture (8051 + Arduino Uno)
 - UART communication between controllers
-- LCD display for user interaction
-- TARE calibration for improved measurement accuracy
-- Compact and low-cost embedded automation system
+- LCD display for real-time user feedback
+- TARE calibration for accurate weight measurement
+- Compact and low-cost smart kitchen automation
 
 ---
 
-## 🛠 Hardware Components
+## 🛠️ Hardware Components
 
-- 8051 Microcontroller
+- 8051 Microcontroller (Main Controller)
 - Arduino Uno
-- Servo Motors (5x)
+- Servo Motors (5 Units)
 - Load Cell
 - HX711 Load Cell Amplifier
 - I2C LCD Display
-- Push Buttons
-- UART Communication Interface
+- Push Buttons (Spice Selection & TARE)
 - Regulated Power Supply
 
 ---
@@ -47,21 +44,19 @@ The system uses the **8051 Microcontroller** for user interaction and communicat
 - Arduino IDE
 - Keil uVision
 - Proteus Design Suite
-- HX711 Library
 
 ---
 
 ## ⚙️ Working Principle
 
-1. The system initializes all hardware components.
-2. The user calibrates the load cell using the **TARE** button.
-3. A spice is selected using one of the selection buttons.
-4. The **8051 Microcontroller** sends a UART command to the Arduino Uno.
+1. Initialize the LCD, UART, HX711 module, and other peripherals.
+2. Calibrate the load cell using the **TARE** button.
+3. Select the desired spice using one of the push buttons.
+4. The 8051 Microcontroller sends a UART command to the Arduino Uno.
 5. The Arduino activates the corresponding servo motor.
-6. The spice begins dispensing.
-7. The load cell continuously measures the dispensed weight.
-8. Once the desired weight is reached, the servo motor stops automatically.
-9. The final weight is displayed on the LCD.
+6. Spice is dispensed while the load cell continuously measures the weight.
+7. Once the target weight is achieved, dispensing stops automatically.
+8. The LCD displays the measured weight in real time.
 
 ---
 
@@ -80,7 +75,7 @@ Select Spice
 8051 Sends UART Command
         │
         ▼
-Arduino Controls Servo
+Arduino Controls Servo Motor
         │
         ▼
 Dispense Spice
@@ -93,7 +88,7 @@ Target Weight Reached?
       │          │
      No         Yes
       │          │
- Continue     Stop Servo
+ Continue     Stop Dispensing
       │          │
       └──────────┘
         ▼
@@ -102,35 +97,24 @@ Display Final Weight
 
 ---
 
-## 📂 Repository Structure
+## 📁 Repository Contents
 
-```text
-Automated-Spice-Dispenser/
-│
-├── README.md
-├── LICENSE
-│
-├── Report/
-│   └── Spice_Dispenser_Report.docx
-│
-├── Presentation/
-│   └── Spice_Dispenser_Presentation.pptx
-│
-
-├── Arduino_Code/ (coming soon)
-│
-└── 8051_Code/ (coming soon)
-```
+- `README.md`
+- `LICENSE`
+- `Spice_Dispenser_Report.docx`
+- `Spice_Dispenser_Presentation.pptx`
+- `Spice_Dispenser_Arduino.ino`
+- `Spice_Dispenser_8051.c`
 
 ---
 
 ## 📊 Results
 
 - Successfully implemented an automated spice dispensing system.
-- Achieved accurate dispensing using load-cell feedback.
-- Established reliable UART communication between the 8051 and Arduino.
-- Ensured stable servo motor operation.
-- Demonstrated consistent real-time weight monitoring.
+- Accurate dispensing achieved using load-cell feedback.
+- Reliable UART communication between the 8051 and Arduino.
+- Stable servo motor control.
+- Real-time weight monitoring displayed on the LCD.
 
 ---
 
@@ -139,48 +123,39 @@ Automated-Spice-Dispenser/
 - Smart Kitchen Automation
 - Automatic Ingredient Dispensing
 - Food Processing Industries
-- Commercial Restaurants
-- Laboratory Ingredient Measurement
 - Educational Embedded Systems Projects
+- Laboratory Ingredient Measurement
 
 ---
 
 ## 🚀 Future Scope
 
+- IoT-based monitoring and control
 - Mobile application integration
-- Wi-Fi and Bluetooth connectivity
-- IoT-based inventory monitoring
+- Wi-Fi/Bluetooth connectivity
 - Voice assistant support
-- Mobile notifications
-- Automatic refill alerts
-- Cloud-based monitoring and control
+- Inventory monitoring
+- Automatic refill notification
 
 ---
 
 ## 🎥 Project Demonstration
 
-A complete demonstration of the Automated Spice Dispenser is available on YouTube.
+Watch the complete working demonstration on YouTube:
 
-📺 **Demo Video:** https://youtu.be/uS_bVf0X2Ks
+**▶ https://youtu.be/uS_bVf0X2Ks**
 
 ---
 
 ## 📄 Documentation
 
-This repository currently contains:
+This repository includes:
 
-- 📘 Project Report
-- 📊 Project Presentation
-- 🖼 Circuit Diagram
-- 🔄 System Flowchart
-
-The Arduino and 8051 source code will be uploaded in a future update.
-
----
-
-## 🤝 Contributing
-
-Contributions, suggestions, and improvements are welcome. Feel free to fork this repository and submit a pull request.
+- Complete Project Report
+- Project Presentation
+- Arduino Source Code
+- 8051 Embedded C Source Code
+- Project Demonstration Video (YouTube)
 
 ---
 
@@ -200,4 +175,4 @@ This project is licensed under the **MIT License**.
 
 ---
 
-⭐ If you found this project interesting, consider giving the repository a star!
+⭐ If you found this project useful, consider giving this repository a star.
