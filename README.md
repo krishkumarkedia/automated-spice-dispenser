@@ -116,14 +116,10 @@ Automated-Spice-Dispenser/
 ├── Presentation/
 │   └── Spice_Dispenser_Presentation.pptx
 │
-├── Images/
-│   ├── Circuit_Diagram.png
-│   ├── Flowchart.png
-│   └── Prototype.jpg
+
+├── Arduino_Code/ (coming soon)
 │
-├── Arduino_Code/
-│
-└── 8051_Code/
+└── 8051_Code/ (coming soon)
 ```
 
 ---
