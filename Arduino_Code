@@ -1,0 +1,78 @@
+#include <SoftwareSerial.h>
+#include <Servo.h>
+
+SoftwareSerial mySerial(2, 3); // RX on Pin 2
+
+// Define 5 Servo objects
+Servo servoA; // Pin 8
+Servo servoB; // Pin 9
+Servo servoC; // Pin 10
+Servo servoD; // Pin 11
+Servo servoE; // Pin 12
+
+const int ledPin = 13;
+
+void setup() {
+  pinMode(2, INPUT_PULLUP); // Keeps the serial line stable
+  mySerial.begin(9600);
+  
+  pinMode(ledPin, OUTPUT);
+  digitalWrite(ledPin, LOW);
+  
+  // Servos remain detached to prevent any starting jitter
+}
+
+// Universal sweep function: attach -> move -> detach
+void moveServo(Servo &s, int pin) {
+  s.attach(pin); 
+  
+  // Sweep Out 0 to 180
+  for (int pos = 0; pos <= 180; pos += 5) {
+    s.write(pos);
+    delay(20);
+  }
+  
+  // Sweep Back 180 to 0
+  for (int pos = 180; pos >= 0; pos -= 5) {
+    s.write(pos);
+    delay(20);
+  }
+
+  s.detach(); // Power down signal to stop rotation/jitter
+}
+
+void loop() {
+  if (mySerial.available() > 0) {
+    char data = mySerial.read();
+
+    // Check if the character is any of our 5 buttons
+    if (data == 'A' || data == 'B' || data == 'C' || data == 'D' || data == 'E') {
+      
+      digitalWrite(ledPin, HIGH); // LED ON for feedback
+
+      // Route the character to the correct Pin
+      if (data == 'A') {
+        moveServo(servoA, 8);  
+      } 
+      else if (data == 'B') {
+        moveServo(servoB, 9);  
+      } 
+      else if (data == 'C') {
+        moveServo(servoC, 10); 
+      } 
+      else if (data == 'D') {
+        moveServo(servoD, 11); 
+      }
+      else if (data == 'E') {
+        moveServo(servoE, 12); // Move servo on Pin 12
+      }
+
+      digitalWrite(ledPin, LOW); // LED OFF when move is done
+
+      // Clear any noise or repeat characters from the buffer
+      while(mySerial.available() > 0) {
+        mySerial.read();
+      }
+    }
+  }
+}
